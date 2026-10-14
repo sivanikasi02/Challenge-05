@@ -1,0 +1,49 @@
+#include <stdio.h>
+
+int main()
+{
+    float expense;
+    float smallTotal = 0, mediumTotal = 0, largeTotal = 0;
+    int smallCount = 0, mediumCount = 0, largeCount = 0;
+
+    while (1)
+    {
+        printf("Enter expense (0 to stop): ");
+        scanf("%f", &expense);
+
+        if (expense == 0)
+            break;
+
+        if (expense < 0)
+        {
+            printf("Invalid amount\n");
+        }
+        else if (expense < 100)
+        {
+            smallCount++;
+            smallTotal += expense;
+        }
+        else if (expense < 500)
+        {
+            mediumCount++;
+            mediumTotal += expense;
+        }
+        else
+        {
+            largeCount++;
+            largeTotal += expense;
+        }
+    }
+
+    printf("\n--- Expense Summary ---\n");
+    printf("Small Count: %d\n", smallCount);
+    printf("Small Total: %.2f\n", smallTotal);
+
+    printf("Medium Count: %d\n", mediumCount);
+    printf("Medium Total: %.2f\n", mediumTotal);
+
+    printf("Large Count: %d\n", largeCount);
+    printf("Large Total: %.2f\n", largeTotal);
+
+    return 0;
+}
